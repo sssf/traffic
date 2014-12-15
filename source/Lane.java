@@ -10,12 +10,18 @@ public class Lane {
     }
 
     private Car[] theLane;
-
+    /**
+        Constructor for Lane
+        @param n Number of available slots for cars
+     */
     public Lane(int n) {
 	// Konstruerar ett Lane-objekt med plats för n fordon
         theLane = new Car[n];
     }
 
+    /**
+        Moves all vehicles one step forward, the vehicle in front is removed from the lane
+     */
     public void step() {
 	// Stega fram alla fordon (utom det på plats 0) ett steg 
         // (om det går). (Fordonet på plats 0 tas bort utifrån 
@@ -29,25 +35,39 @@ public class Lane {
         }
 
     }
-
+    /**
+        Get the first car in the lane and remove it
+        @return The first car in the lane.
+    */
     public Car getFirst() {
 	// Returnera och tag bort bilen som står först
         Car car = this.theLane[0];
         this.theLane[0] = null;
         return car;
     }
-
+    /**
+        Returns the first car in the lane without removing it
+        @return The first car in the lane
+     */
     public Car firstCar() {
 	// Returnera bilen som står först utan att ta bort den
         return this.theLane[0];
     }
 
-
+    /**
+        Checks if the last slot in the lane is free
+        @return true if the last slot in the lane is free, false otherwhise
+    */
     public boolean lastFree() {
 	// Returnera true om sista platsen ledig, annars false
         return (this.theLane[this.theLane.length - 1] == null);
     }
 
+    /**
+        Adds a new car to the end of the lane
+        @param c The car to add to the end of the lane.
+        @throws OverflowException if lane is full
+     */
     public void putLast(Car c) throws OverflowException {
 	// Ställ en bil på sista platsen på vägen
 	// (om det går).
@@ -57,7 +77,10 @@ public class Lane {
         }
         this.theLane[this.theLane.length - 1] = c;
     }
-
+    
+    /**
+        @return String representation of the lane
+     */
     public String toString() {
         String lane = "";
         for (int i = 0; i < this.theLane.length; i++) {

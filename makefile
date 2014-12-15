@@ -21,7 +21,8 @@ test:
 	java  $(JUNIT) $(JUNIT_RUNNER) SubscriptionTest
 
 
-
+documentation:
+	javadoc -d docs/ -sourcepath source/*.java
 ###
 ###default: classes
 ###

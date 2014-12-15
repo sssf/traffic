@@ -8,24 +8,38 @@ class Statistics {
     private List<Integer> timeTurned   = new ArrayList<Integer>();
     private List<Integer> timeStraight = new ArrayList<Integer>();
 
-
+    /**
+     * Increases the count for how many times a car have turned and keeps a log of the time when a car turned
+     * @param time the time for when the car turned
+     */
     public void turned(int time) {
         this.numTurned++;
         this.timeTurned.add(time);
     }
 
+    /**
+     *  Increases the count for how mant times a car went straight and keeps a log of the time when a car went straight
+     *  @param time the time for when the car turned
+     */
     public void straight(int time) {
         this.numStraight++;
         this.timeStraight.add(time);
     }
 
+    /**
+     *  Keeps track of the number of times a car enters the lane.
+     */
     public void numAdded() {
         this.numAdded++;
     }
 
+    /**
+     *  Keeps track of the number of times a car tries to enter the lane but the lane is full
+     */
     public void systemFull() {
         this.systemFull++;
     }
+
 
     private int calculateAverageTime(List<Integer> list) {
         int sum = 0;
@@ -34,7 +48,10 @@ class Statistics {
         }
         return sum / ((list.size() == 0) ? 1 : list.size());
     }
-
+    
+    /**
+     *  prints statistics
+     */
     public void print() {
         System.out.println("=========================================");
         System.out.println(" STATISTICS");
@@ -50,7 +67,5 @@ class Statistics {
         System.out.println("still in system:       " + (this.numAdded - this.numStraight - this.numTurned));
         System.out.println("total added:           " + (this.numAdded));
         System.out.println("total passed:          " + (this.numStraight + this.numTurned));
-
-
     }
 }

@@ -22,7 +22,10 @@ public class TrafficSystem {
     private int time = 0;
     private Random r = new Random();
     private int frequency = 0;
-
+    
+    /**
+     *  Constructor for TrafficSystem
+     */
     public TrafficSystem() {
         Properties p = readParameters("properties.data");
 
@@ -39,7 +42,11 @@ public class TrafficSystem {
         this.frequency  = Integer.parseInt(p.getProperty("frequency"));
     }
 
-
+    /**
+     *  reads a file with the parameters for the simulation
+     *  @param filename the filename containing the paramaters for the simulation
+     *  @return Properties with the parameters
+     */
     public Properties readParameters(String filename) {
 	// Läser in parametrar för simuleringen
 	// Metoden kan läsa från terminalfönster, dialogrutor
@@ -56,7 +63,10 @@ public class TrafficSystem {
         }
         return p;
     }
-
+    
+    /**
+     *  Steps the simulation
+     */
     public void step() {
 	// Stega systemet ett tidssteg m h a komponenternas step-metoder
 	// Skapa bilar, lägg in och ta ur på de olika Lane-kompenenterna
@@ -104,12 +114,18 @@ public class TrafficSystem {
 
 
     }
-
+    
+    /**
+     *  Prints the statistics for the simulation
+     */
     public void printStatistics() {
 	// Skriv statistiken samlad så här långt
         stats.print();
     }
-
+    
+    /**
+     *  prints the simulated crossing.
+     */
     public void print() {
 	// Skriv ut en grafisk representation av kösituationen
 	// med hjälp av klassernas toString-metoder
