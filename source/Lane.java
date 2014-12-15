@@ -51,10 +51,11 @@ public class Lane {
     public void putLast(Car c) throws OverflowException {
 	// Ställ en bil på sista platsen på vägen
 	// (om det går).
-        if (this.theLane[this.theLane.length - 1] == null) {
+        if (this.theLane[this.theLane.length - 1] != null) {
             //TODO: skriv något bätte då, bror
             throw new OverflowException("för många bilar bror");
         }
+        this.theLane[this.theLane.length - 1] = c;
     }
 
     public String toString() {
@@ -67,7 +68,11 @@ public class Lane {
         lane += "\n";
         for (int i = 0; i < this.theLane.length; i++) {
             lane += " ";
-            lane += "car";
+            if (this.theLane[i] != null) {
+                lane += "car";
+            } else {
+                lane += "   ";
+            }
         }
         lane += "\n";
         for (int i = 0; i < this.theLane.length; i++) {
@@ -81,5 +86,13 @@ public class Lane {
             }
         }
         lane += "\n";
+        lane += "\n";
+        for (int i = 0; i < this.theLane.length; i++) {
+           for (int j = 0; j < 4; j++) {
+               lane += "=";
+           }
+        }
+        lane += "\n";
+        return lane;
     }
 }

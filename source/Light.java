@@ -11,21 +11,19 @@ public class Light {
 
     public void step() { 
         //TODO: Micael wrote this, so its probably wrong, get someone not retarded to fix it
-       // Stegar fram klocka ett steg
-       if (time < period-1)
-           time++;
-       else
-           time = 0;
+        // Stegar fram klocka ett steg
+        time = (time < period) ? ++time : 0;
+        System.out.println("light time: " + time);
     }
 
     public boolean isGreen()   {
-	// Returnerar true om time<green, annars false
+        // Returnerar true om time<green, annars false
         return (this.time < this.green);
     }
 
     public String  toString()  {
-        return "Period:\n\t " + period + "Time:\n\t" + time + "Green:\n\t" + isGreen();
+        return isGreen() ? "Green" : "Red";
     }
-	
+
 }
 

@@ -1,0 +1,8 @@
+AtoB = 10
+BtoC = 10
+Turn = 10
+delay = 2
+steps = 200
+period = 40
+green  = 10
+frequency = 60
