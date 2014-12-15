@@ -10,6 +10,7 @@ public class Car {
         this.destination = destination;
     }
 
+
     public int getBornTime() {
         return this.bornTime;
     }

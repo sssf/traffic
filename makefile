@@ -1,7 +1,26 @@
-all:
+#all:
+#	mkdir -p bin/
+#	javac -d bin/ source/*.java
+#	cd bin && java Simulation
+#
+#test:
+#	mkdir -p bin/
+#	javac -d bin/ source/*.java
+#	cd bin && java -cp Simulation
+
+
+all: test
+
+
+JUNIT = -cp .:/usr/share/java/junit4.jar
+JUNIT_RUNNER = org.junit.runner.JUnitCore
+
+test:
 	mkdir -p bin/
-	javac -d bin/ source/*.java
-	cd bin && java Simulation
+	javac $(JUNIT) SubscriptionTest.java
+	java  $(JUNIT) $(JUNIT_RUNNER) SubscriptionTest
+
+
 
 ###
 ###default: classes
