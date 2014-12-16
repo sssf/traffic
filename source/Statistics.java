@@ -8,38 +8,54 @@ class Statistics {
     private List<Integer> timeTurned   = new ArrayList<Integer>();
     private List<Integer> timeStraight = new ArrayList<Integer>();
 
-
+    /**
+     *  @return number of cars turned
+     */
     public int getNumTurned() {
         return this.numTurned;
     }
 
-
+    /**
+     * @return number of cars that went straight
+     */
     public int getNumStraight() {
         return this.numStraight;
     }
 
-
+    /**
+     * @return number of cars added to the lane
+     */
     public int getNumAdded() {
         return this.numAdded;
     }
 
-
+    /**
+     * @return number of cars that couldnt successfully enter the lane because it was full
+     */
     public int getSystemFull() {
         return this.systemFull;
     }
-
+    /**
+     * @return the average time it took for a turning car to pass through the system
+     */
     public int getAverageTurnTime() {
         return calculateAverageTime(this.timeTurned);
     }
-
+    /**
+     * @return the averade time it took for a car going straight to pass through the system
+     */
     public int getAverageStraightTime() {
         return calculateAverageTime(this.timeStraight);
     }
-
+    /**
+     * @return the number of cars still in the system
+     */
     public int getStillInSystem() {
         return this.numAdded - this.numStraight - this.numTurned;
     }
-
+    /**
+     * total number of cars that successfully passed through the system
+     */
     public int getTotalPassed() {
         return this.numStraight + this.numTurned;
     }
