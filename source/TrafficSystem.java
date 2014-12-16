@@ -22,7 +22,7 @@ public class TrafficSystem {
     private int time = 0;
     private Random r = new Random();
     private int frequency = 0;
-    
+
     /**
      *  Constructor for TrafficSystem
      */
@@ -63,7 +63,7 @@ public class TrafficSystem {
         }
         return p;
     }
-    
+
     /**
      *  Steps the simulation
      */
@@ -114,7 +114,7 @@ public class TrafficSystem {
 
 
     }
-    
+
     /**
      *  Prints the statistics for the simulation
      */
@@ -122,7 +122,7 @@ public class TrafficSystem {
 	// Skriv statistiken samlad så här långt
         stats.print();
     }
-    
+
     /**
      *  prints the simulated crossing.
      */

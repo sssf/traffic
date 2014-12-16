@@ -11,38 +11,38 @@ class Statistics {
 
     public int getNumTurned() {
         return this.numTurned;
-    } 
+    }
 
 
     public int getNumStraight() {
         return this.numStraight;
-    } 
+    }
 
 
     public int getNumAdded() {
         return this.numAdded;
-    } 
+    }
 
 
     public int getSystemFull() {
         return this.systemFull;
-    } 
-    
-    public int getAveregeTurnTime() {
-        return calculateAverageTime(this.timeTurned);
-    } 
+    }
 
-    public int getAveregeStraightTime() {
+    public int getAverageTurnTime() {
+        return calculateAverageTime(this.timeTurned);
+    }
+
+    public int getAverageStraightTime() {
         return calculateAverageTime(this.timeStraight);
     }
-    
+
     public int getStillInSystem() {
         return this.numAdded - this.numStraight - this.numTurned;
-    } 
+    }
 
     public int getTotalPassed() {
         return this.numStraight + this.numTurned;
-    } 
+    }
     /**
      * Increases the count for how many times a car have turned and keeps a log of the time when a car turned
      * @param time the time for when the car turned
@@ -83,7 +83,7 @@ class Statistics {
         }
         return sum / ((list.size() == 0) ? 1 : list.size());
     }
-    
+
     /**
      *  prints statistics
      */

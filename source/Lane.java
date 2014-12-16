@@ -2,7 +2,7 @@
 public class Lane {
 
     public static class OverflowException extends RuntimeException {
-        // Undantag som kastas när det inte gick att lägga 
+        // Undantag som kastas när det inte gick att lägga
         // in en ny bil på vägen
         public OverflowException(String message) {
             super(message);
@@ -23,8 +23,8 @@ public class Lane {
         Moves all vehicles one step forward, the vehicle in front is removed from the lane
      */
     public void step() {
-	// Stega fram alla fordon (utom det på plats 0) ett steg 
-        // (om det går). (Fordonet på plats 0 tas bort utifrån 
+	// Stega fram alla fordon (utom det på plats 0) ett steg
+        // (om det går). (Fordonet på plats 0 tas bort utifrån
 	// mm h a metoden nedan.)
         for (int i = 1; i < theLane.length; ++i)
         {
@@ -77,7 +77,7 @@ public class Lane {
         }
         this.theLane[this.theLane.length - 1] = c;
     }
-    
+
     /**
         @return String representation of the lane
      */

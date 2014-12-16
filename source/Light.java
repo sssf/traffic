@@ -21,7 +21,7 @@ public class Light {
         //TODO: Micael wrote this, so its probably wrong, get someone not retarded to fix it
         // Stegar fram klocka ett steg
         time = (time < period) ? ++time : 0;
-        System.out.println("light time: " + time);
+        //System.out.println("light time: " + time);
     }
     
     /**

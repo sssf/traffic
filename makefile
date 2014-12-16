@@ -11,15 +11,25 @@
 
 all: test
 
+JUNIT := -cp .:/usr/share/java/junit4.jar
+JUNIT_RUNNER := org.junit.runner.JUnitCore
+TEST_FILES   := $(shell find source -type f -name "*Test.java")
+SOURCE_FILES := $(shell find source -type f -name "*.java")
+CLASS_FILES  := $(shell find bin -type f -name "*.class")
 
-JUNIT = -cp .:/usr/share/java/junit4.jar
-JUNIT_RUNNER = org.junit.runner.JUnitCore
-
-test:
+run:
 	mkdir -p bin/
-	javac $(JUNIT) SubscriptionTest.java
-	java  $(JUNIT) $(JUNIT_RUNNER) SubscriptionTest
+	javac -d bin $(SOURCE_FILES)
+	cd source && java Simulation
 
+
+test: $(SOURCE_FILES)
+	mkdir -p bin/
+	javac -d bin/ $(JUNIT) $(SOURCE_FILES)
+	cd bin && java $(JUNIT) $(JUNIT_RUNNER) $(patsubst source/%.java, %, $(TEST_FILES))
+
+clean:
+	rm -f $(CLASS_FILES)
 
 documentation:
 	javadoc -d docs/ -sourcepath source/*.java
