@@ -134,6 +134,11 @@ public class Lane {
             }
         }
         lane += "\n";
+        for (int i = 0; i < this.theLane.length; i++) {
+           for (int j = 0; j < 4; j++) {
+               lane += " ";
+           }
+        }
         lane += "\n";
         for (int i = 0; i < this.theLane.length; i++) {
            for (int j = 0; j < 4; j++) {
