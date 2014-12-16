@@ -82,6 +82,36 @@ public class Lane {
         @return String representation of the lane
      */
     public String toString() {
+        // BEST ?
+        StringBuilder sideBuilder   = new StringBuilder();
+        //StringBuilder centerBuilder = new StringBuilder();
+        StringBuilder result        = new StringBuilder();
+
+        for (int i = 0; i < this.theLane.length; i++) {
+            sideBuilder.append("====");
+        }
+        sideBuilder.append("\n");
+        String side = sideBuilder.toString();
+        result.append(side);
+        for (int i = 0; i < this.theLane.length; i++) {
+            if (this.theLane[i] != null) {
+                result.append(" car");
+            } else {
+                result.append("    ");
+            }
+        }
+        result.append("\n");
+        for (int i = 0; i < this.theLane.length; i++) {
+            result.append("- - ");
+        }
+
+        result.append("\n\n");
+        result.append(side);
+
+        return result.toString();
+
+        // BETTER?
+        /*
         String side = "";
         String center = "";
         String cars = "";
@@ -105,7 +135,8 @@ public class Lane {
 
 
         return side + cars + center + "\n" + side;
-
+        */
+        // BAD
         /*
         String lane = "";
         for (int i = 0; i < this.theLane.length; i++) {
