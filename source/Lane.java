@@ -82,30 +82,29 @@ public class Lane {
         @return String representation of the lane
      */
     public String toString() {
-        StringBuilder sb = new StringBuilder();
+        String side = "";
+        String center = "";
+        String cars = "";
         for (int i = 0; i < this.theLane.length; i++) {
-            sb.append("====");
+            side += "====";
         }
-        sb.append("\n");
+        side += "\n";
         for (int i = 0; i < this.theLane.length; i++) {
             if (this.theLane[i] != null) {
-                sb.append(" car");
+                cars += " car";
             } else {
-                sb.append("    ");
+                cars += "    ";
             }
         }
-        sb.append("\n");
+        cars += "\n";
         for (int i = 0; i < this.theLane.length; i++) {
-            sb.append("- - ");
+            center += "- - ";
         }
 
-        sb.append("\n");
-        for (int i = 0; i < this.theLane.length; i++) {
-            sb.append("====");
-        }
-        sb.append("\n");
+        center += "\n";
 
-        return sb.toString();
+
+        return side + cars + center + "\n" + side;
 
         /*
         String lane = "";
