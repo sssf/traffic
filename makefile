@@ -19,8 +19,8 @@ CLASS_FILES  := $(shell find bin -type f -name "*.class")
 
 run:
 	mkdir -p bin/
-	javac -d bin $(SOURCE_FILES)
-	cd source && java Simulation
+	javac -d bin $(JUNIT) $(SOURCE_FILES)
+	cd bin && java Simulation
 
 
 test: $(SOURCE_FILES)
